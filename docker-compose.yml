@@ -1,0 +1,14 @@
+services:
+  logger:
+    build: .
+    command: python logger.py
+    volumes:
+      - .:/app
+  
+  detector:
+    build: .
+    command: python detector.py
+    volumes:
+      - .:/app
+    depends_on:
+      - logger
